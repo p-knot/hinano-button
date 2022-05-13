@@ -1,0 +1,88 @@
+//- vars
+block vars
+doctype html
+head
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-228128786-1")
+    script
+        |window.dataLayer = window.dataLayer || [];
+        |function gtag(){dataLayer.push(arguments);}
+        |gtag('js', new Date());
+        |gtag('config', 'UA-228128786-1');
+    meta(name="viewport" content='width=750,user-scalable=yes')
+    meta(name="format-detection", content="telephone=no")
+    meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+html(lang='ja')
+    head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + pageOgpType + ": http://ogp.me/ns/" + pageOgpType + "#")
+        title こんひな〜
+
+        //- CSS Setting
+        link(rel='stylesheet', href="./css/style.css?v=201903-01")
+        block link
+
+    body#g(class=bodyClass)
+        script
+            | var isPC = true;
+            | (function () { if (navigator.userAgent.toLowerCase().match(/iphone|ipad|android/)) { document.body.classList.add('sp');isPC=false;return; } document.body.classList .add('pc'); })();
+        //block body
+        .header-nav
+            .button-twitter
+                a.twitter-share-button(href!="https://twitter.com/share?text=こんひな～", data-show-count="false") Tweet
+
+        #wrapper
+            main.mainContent
+                h1 こんひな〜
+                p.desc_top
+                    a(href="https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A", target="_blank") ひなーの
+                    |が喋ってくれるよ。
+                    br
+                    |バカデカ大声が多いので音量には注意してね。
+                    br
+                    |このサイトは
+                    a(href="https://twitter.com/niltea", target="_blank") 渋澤タカシさん
+                    |の
+                    a(href="https://github.com/niltea/hanarisa-button", target="_blank") ソースコード
+                    |を改変して作成されています。
+
+                .singleButtonWrapper
+                    .button_wrapper#singleButtonWrapper
+                    .content
+                        p
+                            a(href="/hinano-button/") 一覧に戻る
+                .multiButtonWrapper
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=Uz5_EAc5ftI&t=0s", target="_blank") 【NEEDY GIRL OVERDOSE】しあわせになりたい。【ぶいすぽっ！/橘ひなの】
+                        .button_wrapper
+                            .button.button-play.cat-c(data-voice="2022_02_03_NEEDY_0") ちゅ♡
+                            .button.button-play(data-voice="2022_02_03_NEEDY_1") SORENA⤴
+                            .button.button-play(data-voice="2022_02_03_NEEDY_2") 英リサの悪口やめろよw
+                            .button.button-play(data-voice="2022_02_03_NEEDY_3") ぽきた
+                            .button.button-play(data-voice="2022_02_03_NEEDY_4") †昇天†
+                            .button.button-play(data-voice="2022_02_03_NEEDY_5") 待ってー!やっちゃったー!
+                            .button.button-play(data-voice="2022_02_03_NEEDY_6") オタクはすぐ死ぬ
+                            
+                            
+                    .infoWrapper#infoWrapper
+                        p
+                            a(href='#', target='_blank')#fixedLink このボタンへのリンク
+                .ad_wrapper
+                    h2 advertisement
+                    .ad-item
+                        a(href="https://vggc.info/", target="_blank")
+                            img(src="https://vggc.info/img/banner.png")
+                            span ぶいすぽっ！ オンリー同人誌即売会 VGGC
+                    .ad-item
+                        a(href="https://holokle.info/", target="_blank")
+                            img(src="https://holokle.info/img/banner.png")
+                            span ホロライブオンリー同人誌即売会 ホロクル
+            .mainFooter
+                .credit
+                    p 音声等の権利は、全て元権利者に帰属します。
+                    p 音声以外の部分については、<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">CC-BY-NC-SA-4.0</a>に基づき提供されています。<br>
+                        |ソースコードは<a href="https://github.com/p-knot/hinano-button/tree/master" target="_blank">こちら</a>。<br>お問い合わせ・追加したら面白そうなボイスがあれば
+                        a(href="https://twitter.com/p_knot_vb", target="_blank") @p_knot_vb
+                        |まで。
+
+    script(src='./js/app.js')
+
+    script(async, src="https://platform.twitter.com/widgets.js", charset="utf-8")

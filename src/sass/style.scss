@@ -1,0 +1,249 @@
+@import url("~reset.css");
+$backGroundColor: #ffedef;
+$baseColor: #df74a4;
+$accentColor: #3D1D1D;
+$buttonTextColor: #3D1D1D;
+$buttonBGColor: #ffb2ca;
+$accentColor-c: #411f40;
+$buttonTextColor-c: #411f3f;
+$buttonBGColor-c: #f77abd;
+$headerColor: #89194b;
+$linkColor: #aa235e;
+$linkHoverColor: #89194b;
+$footerTextColor: #000;
+$footerHoverColor: #000;
+.button-twitter {
+	position: fixed;
+	left: 10px;
+	top: 10px;
+}
+#wrapper {
+	display: flex;
+	flex-flow: column;
+	min-height: 100vh;
+	line-height: 1.7em;
+	font-family: sans-serif;
+	background-color: $backGroundColor;
+}
+.mainContent {
+	flex: 1;
+	margin: 0 auto;
+	a {
+		color: $linkColor;
+		&:hover {
+			color: $linkHoverColor;
+		}
+	}
+}
+h1 {
+	text-align: center;
+	font-weight: 600;
+	font-size: 1.6rem;
+	color: $headerColor;
+}
+.desc_top {
+	text-align: center;
+	color: $headerColor;
+}
+.movie_title {
+	text-align: center;
+}
+.button_wrapper {
+	margin: 0 auto;
+}
+.button-play {
+	box-sizing: border-box;
+	cursor: pointer;
+	color: $buttonTextColor;
+	border: 1px solid $accentColor;
+	background-color: $buttonBGColor;
+	border-radius: 5px;
+	text-align: center;
+	&.cat-c {
+		color: $buttonTextColor-c;
+		border: 1px solid $accentColor-c;
+		background-color: $buttonBGColor-c;
+	}
+	&.disabled {
+		cursor: not-allowed;
+		background-color: #ddd;
+		color: #aaa;
+		border-color: #888;
+	}
+}
+.mainFooter {
+	background-color: $baseColor;
+	color: $footerTextColor;
+	a {
+		color: $footerTextColor;
+		&:hover {
+			color: $footerHoverColor;
+		}
+	}
+}
+
+//single mode
+.singleButtonWrapper {
+	display: none;
+	.content {
+		text-align: center;
+	}
+}
+.isSingle {
+	.singleButtonWrapper {
+		display: block;
+	}
+	.multiButtonWrapper {
+		display: none;
+	}
+}
+.infoWrapper {
+	position: absolute;
+	background-color: $backGroundColor;
+	padding: 0.5em;
+	border: 1px solid $accentColor;
+	border-radius: 3px;
+	opacity: 0;
+	pointer-events: none;
+	transition: opacity 0.4s;
+	&:after {
+		content: '';
+		display: block;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 16px solid $accentColor;
+		position: absolute;
+		left: 2px;
+		bottom: -16px;
+	}
+}
+.isPlaying .infoWrapper {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+@media screen and (min-width: 751px) {
+	.onlyNarrow {
+		display: none;
+	}
+	a {
+		text-decoration: none;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+	.mainContent {
+		padding-top: 50px;
+		width: 90%;
+	}
+	h1 {
+		font-size: 28px;
+	}
+	.desc_top {
+		margin-top: 20px;
+	}
+	.movie_title {
+		margin-top: 40px;
+		text-align: center;
+		font-weight: 600;
+		font-size: 20px;
+	}
+	.button_wrapper {
+		margin-top: 30px;
+		display: flex;
+		flex-wrap: wrap;
+	}
+	.button-play {
+		width: 49%;
+		margin-bottom: 1.2em;
+		font-size: 18px;
+		height: 3em;
+		line-height: 3em;
+		&:nth-child(2n) {
+			margin-left: 2%;
+		}
+		.singleButtonWrapper & {
+			margin: 1.5em auto;
+			height: 4em;
+			line-height: 4em;
+			width: 80%;
+		}
+	}
+	.mainFooter {
+		margin-top: 40px;
+		padding: 40px 3% 40px;
+		.credit {
+			font-size: 13px;
+			text-align: center;
+		}
+	}
+}
+
+.ad_wrapper {
+	margin-top: 50px;
+	h2 {
+		text-align: center;
+	}
+	.ad-item {
+		a {
+			display: flex;
+			width: 500px;
+			margin: 15px auto 0;
+		}
+		img {
+			display: inline-block;
+		}
+		span {
+			display: inline-block;
+			font-size: 13px;
+			margin-left: 15px;
+			line-height: 40px;
+			vertical-align: middle;
+			width: 285px;
+		}
+	}
+}
+
+@media screen and (min-width: 1300px) {
+	.multiButtonWrapper .button-play {
+		width: 32%;
+		margin-left: 2%;
+		&:nth-child(3n+1) {
+			margin-left: 0;
+		}
+	}
+}
+@media screen and (max-width: 750px) {
+	.mainContent {
+		width: 94%;
+		padding-top: 80px;
+	}
+	h1 {
+		font-size: 34px;
+	}
+	.desc_top {
+		margin-top: 28px;
+		font-size: 18px;
+	}
+	.movie_title {
+		margin-top: 60px;
+		text-align: center;
+		font-weight: 600;
+		font-size: 28px;
+		line-height: 1.5em;
+	}
+	.button_wrapper {
+		margin-top: 30px;
+	}
+	.button-play {
+		width: 100%;
+		margin-bottom: 1.2em;
+		font-size: 24px;
+		height: 4em;
+		line-height: 4em;
+	}
+	.mainFooter {
+		margin-top: 40px;
+		padding: 40px 3% 40px;
+	}
+}

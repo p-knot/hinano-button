@@ -1,0 +1,238 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}.button-twitter {
+  position: fixed;
+  left: 10px;
+  top: 10px; }
+
+#wrapper {
+  display: flex;
+  flex-flow: column;
+  min-height: 100vh;
+  line-height: 1.7em;
+  font-family: sans-serif;
+  background-color: #ffedef; }
+
+.mainContent {
+  flex: 1;
+  margin: 0 auto; }
+  .mainContent a {
+    color: #aa235e; }
+    .mainContent a:hover {
+      color: #89194b; }
+
+h1 {
+  text-align: center;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #89194b; }
+
+.desc_top {
+  text-align: center;
+  color: #89194b; }
+
+.movie_title {
+  text-align: center; }
+
+.button_wrapper {
+  margin: 0 auto; }
+
+.button-play {
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #3D1D1D;
+  border: 1px solid #3D1D1D;
+  background-color: #ffb2ca;
+  border-radius: 5px;
+  text-align: center; }
+  .button-play.cat-c {
+    color: #411f3f;
+    border: 1px solid #411f40;
+    background-color: #f77abd; }
+  .button-play.disabled {
+    cursor: not-allowed;
+    background-color: #ddd;
+    color: #aaa;
+    border-color: #888; }
+
+.mainFooter {
+  background-color: #df74a4;
+  color: #000; }
+  .mainFooter a {
+    color: #000; }
+    .mainFooter a:hover {
+      color: #000; }
+
+.singleButtonWrapper {
+  display: none; }
+  .singleButtonWrapper .content {
+    text-align: center; }
+
+.isSingle .singleButtonWrapper {
+  display: block; }
+
+.isSingle .multiButtonWrapper {
+  display: none; }
+
+.infoWrapper {
+  position: absolute;
+  background-color: #ffedef;
+  padding: 0.5em;
+  border: 1px solid #3D1D1D;
+  border-radius: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s; }
+  .infoWrapper:after {
+    content: '';
+    display: block;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 16px solid #3D1D1D;
+    position: absolute;
+    left: 2px;
+    bottom: -16px; }
+
+.isPlaying .infoWrapper {
+  opacity: 1;
+  pointer-events: auto; }
+
+@media screen and (min-width: 751px) {
+  .onlyNarrow {
+    display: none; }
+  a {
+    text-decoration: none; }
+    a:hover {
+      text-decoration: underline; }
+  .mainContent {
+    padding-top: 50px;
+    width: 90%; }
+  h1 {
+    font-size: 28px; }
+  .desc_top {
+    margin-top: 20px; }
+  .movie_title {
+    margin-top: 40px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 20px; }
+  .button_wrapper {
+    margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap; }
+  .button-play {
+    width: 49%;
+    margin-bottom: 1.2em;
+    font-size: 18px;
+    height: 3em;
+    line-height: 3em; }
+    .button-play:nth-child(2n) {
+      margin-left: 2%; }
+    .singleButtonWrapper .button-play {
+      margin: 1.5em auto;
+      height: 4em;
+      line-height: 4em;
+      width: 80%; }
+  .mainFooter {
+    margin-top: 40px;
+    padding: 40px 3% 40px; }
+    .mainFooter .credit {
+      font-size: 13px;
+      text-align: center; } }
+
+.ad_wrapper {
+  margin-top: 50px; }
+  .ad_wrapper h2 {
+    text-align: center; }
+  .ad_wrapper .ad-item a {
+    display: flex;
+    width: 500px;
+    margin: 15px auto 0; }
+  .ad_wrapper .ad-item img {
+    display: inline-block; }
+  .ad_wrapper .ad-item span {
+    display: inline-block;
+    font-size: 13px;
+    margin-left: 15px;
+    line-height: 40px;
+    vertical-align: middle;
+    width: 285px; }
+
+@media screen and (min-width: 1300px) {
+  .multiButtonWrapper .button-play {
+    width: 32%;
+    margin-left: 2%; }
+    .multiButtonWrapper .button-play:nth-child(3n+1) {
+      margin-left: 0; } }
+
+@media screen and (max-width: 750px) {
+  .mainContent {
+    width: 94%;
+    padding-top: 80px; }
+  h1 {
+    font-size: 34px; }
+  .desc_top {
+    margin-top: 28px;
+    font-size: 18px; }
+  .movie_title {
+    margin-top: 60px;
+    text-align: center;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 1.5em; }
+  .button_wrapper {
+    margin-top: 30px; }
+  .button-play {
+    width: 100%;
+    margin-bottom: 1.2em;
+    font-size: 24px;
+    height: 4em;
+    line-height: 4em; }
+  .mainFooter {
+    margin-top: 40px;
+    padding: 40px 3% 40px; } }
