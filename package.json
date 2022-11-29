@@ -1,5 +1,5 @@
 {
-  "name": "hanarisa-button",
+  "name": "hinano-button",
   "version": "1.0.0",
   "main": "index.js",
   "license": "CC-BY-NC-SA-4.0",
@@ -35,6 +35,6 @@
     "watch:webpack": "webpack -w",
     "watch": "run-p watch:webpack watch:pug"
   },
-  "repository": "git@github.com:niltea/hanarisa-button.git",
-  "author": "niltea <futurabodoni@gmail.com>"
+  "repository": "git@github.com:p-knot/hinano-button.git",
+  "author": "p-knot <capibara40105@gmail.com>"
 }
