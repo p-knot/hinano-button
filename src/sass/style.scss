@@ -7,6 +7,7 @@ $buttonBGColor: #ffb2ca;
 $accentColor-c: #411f40;
 $buttonTextColor-c: #411f3f;
 $buttonBGColor-c: #f77abd;
+$buttonBGColor-r: #e372ed;
 $headerColor: #89194b;
 $linkColor: #aa235e;
 $linkHoverColor: #89194b;
@@ -63,6 +64,11 @@ h1 {
 		color: $buttonTextColor-c;
 		border: 1px solid $accentColor-c;
 		background-color: $buttonBGColor-c;
+	}
+	&.cat-r {
+		color: $buttonTextColor-c;
+		border: 1px solid $accentColor-c;
+		background-color: $buttonBGColor-r;
 	}
 	&.disabled {
 		cursor: not-allowed;

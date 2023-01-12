@@ -94,6 +94,10 @@ h1 {
     color: #411f3f;
     border: 1px solid #411f40;
     background-color: #f77abd; }
+  .button-play.cat-r {
+    color: #411f3f;
+    border: 1px solid #411f40;
+    background-color: #e372ed; }
   .button-play.disabled {
     cursor: not-allowed;
     background-color: #ddd;
