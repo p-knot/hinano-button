@@ -7,6 +7,8 @@ $buttonBGColor: #ffb2ca;
 $accentColor-c: #411f40;
 $buttonTextColor-c: #411f3f;
 $buttonBGColor-c: #f77abd;
+$accentColor-r: #411f40;
+$buttonTextColor-r: #411f3f;
 $buttonBGColor-r: #e372ed;
 $headerColor: #89194b;
 $linkColor: #aa235e;
@@ -66,8 +68,8 @@ h1 {
 		background-color: $buttonBGColor-c;
 	}
 	&.cat-r {
-		color: $buttonTextColor-c;
-		border: 1px solid $accentColor-c;
+		color: $buttonTextColor-r;
+		border: 1px solid $accentColor-r;
 		background-color: $buttonBGColor-r;
 	}
 	&.disabled {
