@@ -44,7 +44,9 @@ html(lang='ja')
                     a(href="https://github.com/niltea/hanarisa-button", target="_blank") ソースコード
                     |を改変して作成されています。
                     br
-                    |スマホ側が重たいので、一時削除しています。
+                    |スマホ側が重たいので、一時削除しています…
+                    br
+                    |すべて見たい方は全てボイス表示をクリックしてください
 
                 .singleButtonWrapper
                     .button_wrapper#singleButtonWrapper
@@ -71,74 +73,7 @@ html(lang='ja')
 
                 .pagenation2
                 .buttons
-                    #text-button(onclick='clickDisplayAlert()') 一覧表示
-                    script.
-                        function clickDisplayAlert() {
-                            $(".pagination-container").empty();
-                            $('.multiButtonWrapper').paginathing({
-                                perPage:  document.querySelector('.multiButtonWrapper').childElementCount,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation' ,
-                            });
-                            $('.multiButtonWrapper').paginathing({
-                                pageNumbers: false,
-                                perPage:  document.querySelector('.multiButtonWrapper').childElementCount,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation2' ,
-                            });
-                        }
-                    .num-button(onclick='a()') 3
-                    script.
-                        function a() {
-                            $(".pagination-container").empty();
-                            $('.multiButtonWrapper').paginathing({
-                                pageNumbers: false,
-                                perPage: 3,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation' ,
-                            });
-                            $('.multiButtonWrapper').paginathing({
-                                pageNumbers: false,
-                                perPage: 3,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation2' ,
-                            });
-                        }
-
-                    .num-button(onclick='b()') 6
-                    script.
-                        function b() {
-                            $(".pagination-container").empty();
-                            $('.multiButtonWrapper').paginathing({
-                                pageNumbers: false,
-                                perPage: 6,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation' ,
-                            });
-                            $('.multiButtonWrapper').paginathing({
-                                pageNumbers: false,
-                                perPage: 6,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation2' ,
-                            });
-                        }
-                    .num-button(onclick='c()') 12
-                    script.
-                        function c() {
-                            $(".pagination-container").empty();
-                            $('.multiButtonWrapper').paginathing({
-                                pageNumbers: false,
-                                perPage: 12,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation' ,
-                            });
-                            $('.multiButtonWrapper').paginathing({
-                                pageNumbers: false,
-                                perPage: 12,
-                                activeClass: 'active',
-                                insertAfter:  '.pagenation2' ,
-                            });
-                        }
+                    #text-button(onclick="location.href='index3.html'") 全てのボイス表示
                 .multiButtonWrapper
                     .movie_wrapper
                             h2.movie_title

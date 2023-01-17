@@ -29,7 +29,7 @@
     <div id="wrapper">
       <main class="mainContent">
         <h1>こんひな〜</h1>
-        <p class="desc_top"><a href="https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A" target="_blank">ひなーの</a>が喋ってくれるよ。<br>バカデカ大声が多いので音量には注意してね。<br>このサイトは<a href="https://twitter.com/niltea" target="_blank">渋澤タカシさん</a>の<a href="https://github.com/niltea/hanarisa-button" target="_blank">ソースコード</a>を改変して作成されています。<br>スマホ側が重たいので、一時削除しています。</p>
+        <p class="desc_top"><a href="https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A" target="_blank">ひなーの</a>が喋ってくれるよ。<br>バカデカ大声が多いので音量には注意してね。<br>このサイトは<a href="https://twitter.com/niltea" target="_blank">渋澤タカシさん</a>の<a href="https://github.com/niltea/hanarisa-button" target="_blank">ソースコード</a>を改変して作成されています。<br>スマホ側が重たいので、一時削除しています…<br>すべて見たい方は全てボイス表示をクリックしてください</p>
         <div class="singleButtonWrapper">
           <div class="button_wrapper" id="singleButtonWrapper"></div>
           <div class="content">
@@ -57,78 +57,7 @@
         </script>
         <div class="pagenation2"></div>
         <div class="buttons">
-          <div id="text-button" onclick="clickDisplayAlert()">一覧表示</div>
-          <script>
-            function clickDisplayAlert() {
-                $(".pagination-container").empty();
-                $('.multiButtonWrapper').paginathing({
-                    perPage:  document.querySelector('.multiButtonWrapper').childElementCount,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation' ,
-                });
-                $('.multiButtonWrapper').paginathing({
-                    pageNumbers: false,
-                    perPage:  document.querySelector('.multiButtonWrapper').childElementCount,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation2' ,
-                });
-            }
-          </script>
-          <div class="num-button" onclick="a()">3</div>
-          <script>
-            function a() {
-                $(".pagination-container").empty();
-                $('.multiButtonWrapper').paginathing({
-                    pageNumbers: false,
-                    perPage: 3,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation' ,
-                });
-                $('.multiButtonWrapper').paginathing({
-                    pageNumbers: false,
-                    perPage: 3,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation2' ,
-                });
-            }
-            
-          </script>
-          <div class="num-button" onclick="b()">6</div>
-          <script>
-            function b() {
-                $(".pagination-container").empty();
-                $('.multiButtonWrapper').paginathing({
-                    pageNumbers: false,
-                    perPage: 6,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation' ,
-                });
-                $('.multiButtonWrapper').paginathing({
-                    pageNumbers: false,
-                    perPage: 6,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation2' ,
-                });
-            }
-          </script>
-          <div class="num-button" onclick="c()">12</div>
-          <script>
-            function c() {
-                $(".pagination-container").empty();
-                $('.multiButtonWrapper').paginathing({
-                    pageNumbers: false,
-                    perPage: 12,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation' ,
-                });
-                $('.multiButtonWrapper').paginathing({
-                    pageNumbers: false,
-                    perPage: 12,
-                    activeClass: 'active',
-                    insertAfter:  '.pagenation2' ,
-                });
-            }
-          </script>
+          <div id="text-button" onclick="location.href='index3.html'">全てのボイス表示</div>
         </div>
         <div class="multiButtonWrapper">
           <div class="movie_wrapper">
