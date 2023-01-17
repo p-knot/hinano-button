@@ -34,7 +34,7 @@ $footerHoverColor: #000;
 	a {
 		color: $linkColor;
 		&:hover {
-			color: $linkHoverColor;
+			color: $buttonBGColor;
 		}
 	}
 }
@@ -210,6 +210,66 @@ h1 {
 			width: 285px;
 		}
 	}
+}
+
+
+.pagination {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	padding: 30px;
+	li {
+		margin: 5px;
+		border: 3px solid $buttonBGColor;
+	}
+	a {
+		display: block;
+		text-decoration: none;
+		color: $buttonTextColor;
+		padding: 8px;
+		&:hover {
+			background-color: $buttonBGColor;
+			color: $accentColor;
+		}
+	}
+}
+.list-group-item {
+	background: $accentColor;
+	margin: 10px;
+	padding: 10px;
+	width: 45%;
+}
+.aactive {
+	background-color: $accentColor;
+}
+#text-button {
+	display: $headerColor;
+	color: $headerColor;
+	cursor: pointer;
+	width: 100px;
+	text-align: center;
+	border: 2px solid $headerColor;
+	padding: 5px;
+}
+#text-button:hover{
+	background-color: $buttonBGColor;
+}
+.num-button {
+	display: $headerColor;
+	color: $headerColor;
+	cursor: pointer;
+	width: 50px;
+	text-align: center;
+	border: 2px solid $headerColor;
+	padding: 5px;
+}
+.num-button:hover{
+	background-color: $buttonBGColor;
+}
+.buttons {
+	display: flex;
+	gap: 5px;
+	justify-content: left;
 }
 
 @media screen and (min-width: 1300px) {
