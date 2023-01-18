@@ -207,31 +207,31 @@ h1 {
     vertical-align: middle;
     width: 285px; }
 
-.pagination {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: 30px; }
-  .pagination li {
-    margin: 5px;
-    border: 3px solid #ffb2ca; }
-  .pagination a {
-    display: block;
-    text-decoration: none;
-    color: #3D1D1D;
-    padding: 8px; }
-    .pagination a:hover {
-      background-color: #ffb2ca;
-      color: #3D1D1D; }
-
-.list-group-item {
-  background: #3D1D1D;
-  margin: 10px;
-  padding: 10px;
-  width: 45%; }
-
-.aactive {
-  background-color: #3D1D1D; }
+.example3 {
+  text-align: center;
+  margin: 30px; }
+  .example3 li {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    text-align: center;
+    border: 2px #89194b solid;
+    color: #89194b;
+    border-radius: 5px / 5px; }
+    .example3 li a {
+      display: block;
+      text-decoration: none; }
+      .example3 li a:hover {
+        color: #fff;
+        text-decoration: none;
+        background-color: #ffb2ca; }
+  .example3 .pre {
+    background-color: #f9bde2;
+    color: #fff; }
+  .example3 .this {
+    background-color: #f9bde2;
+    color: #fff; }
 
 #text-button {
   display: #89194b;
@@ -243,6 +243,7 @@ h1 {
   padding: 5px; }
 
 #text-button:hover {
+  color: #fff;
   background-color: #ffb2ca; }
 
 .num-button {

@@ -3,7 +3,6 @@ block vars
 doctype html
 head
     script(async src="https://www.googletagmanager.com/gtag/js?id=UA-228128786-1")
-    script(src='./js/jquery-3.6.3.min.js')
     script
         |window.dataLayer = window.dataLayer || [];
         |function gtag(){dataLayer.push(arguments);}
@@ -43,38 +42,24 @@ html(lang='ja')
                     |の
                     a(href="https://github.com/niltea/hanarisa-button", target="_blank") ソースコード
                     |を改変して作成されています。
-                    br
-                    |スマホ側が重たいので、一時削除しています…
-                    br
-                    |すべて見たい方は全てボイス表示をクリックしてください
 
                 .singleButtonWrapper
                     .button_wrapper#singleButtonWrapper
                     .content
                         p
                             a(href="/hinano-button/") 一覧に戻る
-                script(src='./js/paginathing.min.js')
-                script.
-                    $(function () {
-                        $('.multiButtonWrapper').paginathing({
-                            pageNumbers: false,
-                            perPage: 3,
-                            activeClass: 'active',
-                            insertAfter:  '.pagenation' ,
-                        });
-                        $('.multiButtonWrapper').paginathing({
-                            pageNumbers: false,
-                            perPage: 3,
-                            activeClass: 'active',
-                            insertAfter:  '.pagenation2' ,
-                        });
-                        
-                    });
-
-                .pagenation2
-                .buttons
-                    #text-button(onclick="location.href='index3.html'") 全てのボイス表示
                 .multiButtonWrapper
+                    ul.example3
+                        li.pre &#x524D;&#x3078;
+                        li.this 1
+                        li
+                            a(href='index2.html') 2
+                        li
+                            a(href='index3.html') 3
+                        li
+                            a(href='index2.html') &#x6B21;&#x3078;
+                    .buttons
+                        #text-button(onclick="location.href='all.html'") 一覧表示
                     .movie_wrapper
                             h2.movie_title
                                 a(href="https://www.youtube.com/watch?v=ZrsVqETNmFc", target="_blank") 【YUMENIKKI -DREAM DIARY- 】自分が夢から出れなくなってた【 ぶいすぽっ！/橘ひなの 】
@@ -215,10 +200,18 @@ html(lang='ja')
                             .button_wrapper
                                 .button.button-play(data-voice="t967jXDPJgU-9h17m57s") 私も好きだよ
                                 .button.button-play(data-voice="t967jXDPJgU-9h17m59s") つまんねーな
+                    ul.example3
+                        li.pre &#x524D;&#x3078;
+                        li.this 1
+                        li
+                            a(href='index2.html') 2
+                        li
+                            a(href='index3.html') 3
+                        li
+                            a(href='index2.html') &#x6B21;&#x3078;
                 .infoWrapper#infoWrapper
                     p
                         a(href='#', target='_blank')#fixedLink このボタンへのリンク
-                .pagenation
 
                 .ad_wrapper
                     h2 advertisement

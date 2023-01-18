@@ -213,34 +213,36 @@ h1 {
 }
 
 
-.pagination {
-	list-style: none;
-	display: flex;
-	justify-content: center;
-	padding: 30px;
+.example3 {
+	text-align: center;
+	margin: 30px;
 	li {
-		margin: 5px;
-		border: 3px solid $buttonBGColor;
-	}
-	a {
-		display: block;
-		text-decoration: none;
-		color: $buttonTextColor;
-		padding: 8px;
-		&:hover {
-			background-color: $buttonBGColor;
-			color: $accentColor;
+		display: inline-block;
+		height: 40px;
+		line-height: 40px;
+		width: 40px;
+		text-align: center;
+		border: 2px $headerColor solid;
+		color: $headerColor;
+		border-radius: 5px / 5px;
+		a {
+			display: block;
+			text-decoration: none;
+			&:hover {
+				color: #fff;
+				text-decoration: none;
+				background-color: $buttonBGColor;
+			}
 		}
 	}
-}
-.list-group-item {
-	background: $accentColor;
-	margin: 10px;
-	padding: 10px;
-	width: 45%;
-}
-.aactive {
-	background-color: $accentColor;
+	.pre {
+		background-color: rgb(249, 189, 226);
+		color: #fff;
+	}
+	.this {
+		background-color: rgb(249, 189, 226);
+		color: #fff;
+	}
 }
 #text-button {
 	display: $headerColor;
@@ -252,6 +254,7 @@ h1 {
 	padding: 5px;
 }
 #text-button:hover{
+	color: #fff;
 	background-color: $buttonBGColor;
 }
 .num-button {

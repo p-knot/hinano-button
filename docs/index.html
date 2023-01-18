@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-228128786-1"></script>
-  <script src="./js/jquery-3.6.3.min.js"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -29,37 +28,24 @@
     <div id="wrapper">
       <main class="mainContent">
         <h1>こんひな〜</h1>
-        <p class="desc_top"><a href="https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A" target="_blank">ひなーの</a>が喋ってくれるよ。<br>バカデカ大声が多いので音量には注意してね。<br>このサイトは<a href="https://twitter.com/niltea" target="_blank">渋澤タカシさん</a>の<a href="https://github.com/niltea/hanarisa-button" target="_blank">ソースコード</a>を改変して作成されています。<br>スマホ側が重たいので、一時削除しています…<br>すべて見たい方は全てボイス表示をクリックしてください</p>
+        <p class="desc_top"><a href="https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A" target="_blank">ひなーの</a>が喋ってくれるよ。<br>バカデカ大声が多いので音量には注意してね。<br>このサイトは<a href="https://twitter.com/niltea" target="_blank">渋澤タカシさん</a>の<a href="https://github.com/niltea/hanarisa-button" target="_blank">ソースコード</a>を改変して作成されています。</p>
         <div class="singleButtonWrapper">
           <div class="button_wrapper" id="singleButtonWrapper"></div>
           <div class="content">
             <p><a href="/hinano-button/">一覧に戻る</a></p>
           </div>
         </div>
-        <script src="./js/paginathing.min.js"></script>
-        <script>
-          $(function () {
-              $('.multiButtonWrapper').paginathing({
-                  pageNumbers: false,
-                  perPage: 3,
-                  activeClass: 'active',
-                  insertAfter:  '.pagenation' ,
-              });
-              $('.multiButtonWrapper').paginathing({
-                  pageNumbers: false,
-                  perPage: 3,
-                  activeClass: 'active',
-                  insertAfter:  '.pagenation2' ,
-              });
-              
-          });
-          
-        </script>
-        <div class="pagenation2"></div>
-        <div class="buttons">
-          <div id="text-button" onclick="location.href='index3.html'">全てのボイス表示</div>
-        </div>
         <div class="multiButtonWrapper">
+          <ul class="example3">
+            <li class="pre">&#x524D;&#x3078;</li>
+            <li class="this">1</li>
+            <li><a href="index2.html">2</a></li>
+            <li><a href="index3.html">3</a></li>
+            <li><a href="index2.html">&#x6B21;&#x3078;</a></li>
+          </ul>
+          <div class="buttons">
+            <div id="text-button" onclick="location.href='all.html'">一覧表示</div>
+          </div>
           <div class="movie_wrapper">
             <h2 class="movie_title"><a href="https://www.youtube.com/watch?v=ZrsVqETNmFc" target="_blank">【YUMENIKKI -DREAM DIARY- 】自分が夢から出れなくなってた【 ぶいすぽっ！/橘ひなの 】</a></h2>
             <div class="button_wrapper">
@@ -212,11 +198,17 @@
               <div class="button button-play" data-voice="t967jXDPJgU-9h17m59s">つまんねーな</div>
             </div>
           </div>
+          <ul class="example3">
+            <li class="pre">&#x524D;&#x3078;</li>
+            <li class="this">1</li>
+            <li><a href="index2.html">2</a></li>
+            <li><a href="index3.html">3</a></li>
+            <li><a href="index2.html">&#x6B21;&#x3078;</a></li>
+          </ul>
         </div>
         <div class="infoWrapper" id="infoWrapper">
           <p><a href="#" target="_blank" id="fixedLink">このボタンへのリンク</a></p>
         </div>
-        <div class="pagenation"></div>
         <div class="ad_wrapper">
           <h2>advertisement</h2>
           <div class="ad-item"><a href="https://vggc.info/" target="_blank"><img src="https://vggc.info/img/banner.png"><span>ぶいすぽっ！ オンリー同人誌即売会 VGGC</span></a></div>
