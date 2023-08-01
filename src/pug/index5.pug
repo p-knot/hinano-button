@@ -1,0 +1,239 @@
+//- vars
+block vars
+doctype html
+head
+    script(async src="https://www.googletagmanager.com/gtag/js?id=UA-228128786-1")
+    script
+        |window.dataLayer = window.dataLayer || [];
+        |function gtag(){dataLayer.push(arguments);}
+        |gtag('js', new Date());
+        |gtag('config', 'UA-228128786-1');
+    meta(name="viewport" content='width=750,user-scalable=yes')
+    meta(name="format-detection", content="telephone=no")
+    meta(name="SKYPE_TOOLBAR", content="SKYPE_TOOLBAR_PARSER_COMPATIBLE")
+html(lang='ja')
+    head(prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# " + pageOgpType + ": http://ogp.me/ns/" + pageOgpType + "#")
+        title こんひな〜
+
+        //- CSS Setting
+        link(rel='stylesheet', href="./css/style.css?v=201903-01")
+        block link
+
+    body#g(class=bodyClass)
+        script
+            | var isPC = true;
+            | (function () { if (navigator.userAgent.toLowerCase().match(/iphone|ipad|android/)) { document.body.classList.add('sp');isPC=false;return; } document.body.classList .add('pc'); })();
+        //block body
+        .header-nav
+            .button-twitter
+                a.twitter-share-button(href!="https://twitter.com/share?text=こんひな～", data-show-count="false") Tweet
+
+        #wrapper
+            main.mainContent
+                h1 こんひな〜
+                p.desc_top
+                    a(href="https://www.youtube.com/channel/UCvUc0m317LWTTPZoBQV479A", target="_blank") ひなーの
+                    |が喋ってくれるよ。
+                    br
+                    |バカデカ大声が多いので音量には注意してね。
+                    br
+                    |このサイトは
+                    a(href="https://twitter.com/niltea", target="_blank") 渋澤タカシさん
+                    |の
+                    a(href="https://github.com/niltea/hanarisa-button", target="_blank") ソースコード
+                    |を改変して作成されています。
+
+                .singleButtonWrapper
+                    .button_wrapper#singleButtonWrapper
+                    .content
+                        p
+                            a(href="/hinano-button/") 一覧に戻る
+                .multiButtonWrapper
+                    ul.example3
+                        li
+                            a(href='index3.html') &#x524D;&#x3078;
+                        li
+                            a(href='index.html') 1
+                        li
+                            a(href='index2.html') 2
+                        li
+                            a(href='index3.html') 3
+                        li
+                            a(href='index4.html') 4
+                        li.this 5
+                        li.pre &#x524D;&#x3078;
+
+                    .buttons
+                        #text-button(onclick="location.href='all.html'") 一覧表示
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=6O-_5Lhbe44&t", target="_blank") 【 VALORANT 】黙々とモクをやる・・・ｗ【ぶいすぽっ！/橘ひなの】
+                        .button_wrapper
+                            .button.button-play.cat-c(data-voice="6O-_5Lhbe44&t-6m30s") めう～                            
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-7m2s") 嫉妬してるの?
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-27m27s") 起源はイラン 
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-32m21s") おねがい
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h25m46s") なーーーー
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h26m31s") だこちて
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h28m19s") よちよち　その２
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h29m43s") ぶりむたんの改心
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h32m23s") あつーい
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h32m40s") とろーるの名は
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h34m1s") なんでだよー
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h31m58s") ままーの
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h36m43s") とんでもないですよ
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h45m57s") だこちゅる覚悟
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-1h40m21s") たのしいね
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-2h10m46s") やりますね~
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-2h12m15s") るん♪るん♪
+                            .button.button-play(data-voice="6O-_5Lhbe44&t-2h9m38s") 対戦を確認
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=5p05ly6pJiE", target="_blank") 【回答を一致させろ！】ぶいすぽっ！一致するまで終われまテン‼【ラウンジ/#ぶいすぽ終われまテン】
+                        .button_wrapper
+                            .button.button-play(data-voice="5p05ly6pJiE-2h8m10s") ぺったん
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=QUsJ7ODk5Fs", target="_blank") 【 Apex Legends 】オタク台パンコーチで渋ハルカスタム！【ぶいすぽっ！/橘ひなの】
+                        .button_wrapper
+                            .button.button-play(data-voice="QUsJ7ODk5Fs-7m") うるさいな
+                            .button.button-play(data-voice="QUsJ7ODk5Fs-1h32m") エレキなの
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=DpnjKXlXA-s", target="_blank") 【 Apex Legends 】オタク台パンこるち【ぶいすぽっ！/橘ひなの】
+                        .button_wrapper
+                            .button.button-play(data-voice="DpnjKXlXA-s-2h") 嫌いじゃないくせに～
+                            .button.button-play(data-voice="DpnjKXlXA-s-4h") バコーン!
+                            .button.button-play(data-voice="DpnjKXlXA-s-6h") カミト君がいじめてくる
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.twitch.tv/videos/1621963876", target="_blank") ワ
+                        .button_wrapper
+                            .button.button-play(data-voice="1621963876-1h14m15s") 下がるな!!
+                            .button.button-play(data-voice="1621963876-1h15m35s") 台パン その4
+                            .button.button-play(data-voice="1621963876-1h48m18s") も~やだ~
+                            .button.button-play(data-voice="1621963876-3h5m25s") きもちー
+                            .button.button-play(data-voice="1621963876-3h8m52s") 覚醒
+                            .button.button-play(data-voice="1621963876-3h9m30s") ひなーの言語理論(必修)
+                            .button.button-play(data-voice="1621963876-3h17m17s") 名言
+                            .button.button-play(data-voice="1621963876-3h27m20s") 台パン　その5
+                            .button.button-play.cat-c(data-voice="1621963876-4h26m28s") かみーとー
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=khJ5zhgTMQU", target="_blank") 【ApexLegends】ひかりの戦士【Kamito】
+                        .button_wrapper
+                            .button.button-play(data-voice="khJ5zhgTMQU-9m00s") 音量調節(左後ろ)
+                            .button.button-play(data-voice="khJ5zhgTMQU-9m00s-right") 音量調節(右)
+                            .button.button-play.cat-c(data-voice="khJ5zhgTMQU-4h01m27s") ​あっ、あっ
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=Bxj9BIeB4SM", target="_blank") 【Shadowverse】眠れるまで私とお話していきませんか？【ぶいすぽっ！/橘ひなの】
+                        .button_wrapper
+                            .button.button-play(data-voice="Bxj9BIeB4SM-14m41s") ひなななななな
+                            .button.button-play(data-voice="Bxj9BIeB4SM-15m20s") ​ぱえ?
+                            .button.button-play(data-voice="Bxj9BIeB4SM-16m18s") はにゃ?
+                            .button.button-play(data-voice="Bxj9BIeB4SM-20m50s") 台パン その3
+                            .button.button-play(data-voice="Bxj9BIeB4SM-44m20s") ちょっと教えてよ
+                            .button.button-play(data-voice="Bxj9BIeB4SM-45m10s") 江戸
+                            .button.button-play(data-voice="Bxj9BIeB4SM-45m45s") いままでありがとな
+                            .button.button-play(data-voice="Bxj9BIeB4SM-50m05s") はい、カス
+                            .button.button-play(data-voice="Bxj9BIeB4SM-50m50s") ひなーの悪くない
+                            .button.button-play.cat-c(data-voice="Bxj9BIeB4SM-1h21m27s") 面白い話して
+                            .button.button-play(data-voice="Bxj9BIeB4SM-1h27m50s") お前らもかわいいよ
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=6hKD_TFNGQs&t=0s", target="_blank") 【Apex Legends】ぺ【ぶいすぽっ!_橘ひなの】
+                        .button_wrapper
+                            .button.button-play(data-voice="6hKD_TFNGQs&t=0s-15m00s") ちゃーい
+                            .button.button-play(data-voice="6hKD_TFNGQs&t=0s-17m39s") ​ぺぺぽ
+                            .button.button-play.cat-c(data-voice="6hKD_TFNGQs&t=0s-2h37m52s") 近いかな?
+                            .button.button-play(data-voice="6hKD_TFNGQs&t=0s-2h38m05s") 950mlll
+                    .movie_wrapper
+                        h2.movie_title
+                            p(style={color: "#aa235e", "font-weight": "bold"}) しゃどばボイス
+                        .button_wrapper
+                            .button.button-play(data-voice="summon") 召喚 : きらめく流星きらりん
+                            .button.button-play(data-voice="special") ​特殊 : かみとおにーちゃん
+                            .button.button-play(data-voice="evolution") 進化 : ぶいすぽの流れ星担当橘ひなのです
+                            .button.button-play(data-voice="attack") 攻撃 : きらりんV
+                            .button.button-play(data-voice="destruction") ​破壊 : きっも
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=LshLqicqO_8", target="_blank") 【Fall Guys】やりたくない【橘ひなの/IBG】
+                        .button_wrapper
+                            .button.button-play(data-voice="LshLqicqO_8&t=1194s-36m54s") ﾒｶﾞﾈｸｲｯ
+                            .button.button-play(data-voice="LshLqicqO_8&t=1194s-45m58s") ​ばか
+                            .button.button-play(data-voice="LshLqicqO_8&t=1194s-48m00s") ​台パン その２　
+                            .button.button-play(data-voice="LshLqicqO_8&t=1194s-50m18s") ​うおおおおお
+                            .button.button-play.cat-c(data-voice="LshLqicqO_8&t=1194s-1h11m40s") ​でも好き
+                            .button.button-play(data-voice="LshLqicqO_8&t=1194s-1h16m59s") ​黙れ
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=EOHKy3itj7o&t=37484s", target="_blank") 【Apex Legends】おれあぽＤ２～→VALORANT【ぶいすぽっ！/橘ひなの】
+                        .button_wrapper
+                            .button.button-play(data-voice="EOHKy3itj7o&t=37484s-9h44m27s") ありがとー
+                            .button.button-play(data-voice="EOHKy3itj7o&t=37484s-9h46m01s") ​きもすぎー
+                            .button.button-play(data-voice="EOHKy3itj7o&t=37484s-10h06m01s") ​台パン
+                            .button.button-play(data-voice="EOHKy3itj7o&t=37484s-10h09m23s") ​ひなのわかんなーい
+                            .button.button-play.cat-c(data-voice="EOHKy3itj7o&t=37484s-10h25m54s") ​かみとおにーたん
+                            .button.button-play(data-voice="EOHKy3itj7o&t=37484s-10h51m59s") ​やかん
+                            .button.button-play(data-voice="EOHKy3itj7o&t=37484s-10h54m24s") 分かった
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=SO2nTjC91ns&t=537s", target="_blank") 【】pien→ゴッフィー【橘ひなの/IBG】
+                        .button_wrapper
+                            .button.button-play.cat-c(data-voice="SO2nTjC91ns&t=2s-8m56s") 風邪の治し方
+                            .button.button-play(data-voice="SO2nTjC91ns&t=2s-43m49s") ​ナッチョス！
+                            .button.button-play(data-voice="SO2nTjC91ns&t=2s-49m34s") ​むりむりかたつむり
+                            .button.button-play(data-voice="SO2nTjC91ns&t=2s-53m03s") ​わったふぁ！
+                            .button.button-play.cat-c(data-voice="SO2nTjC91ns&t=2s-1h14m19s") ​お前わかってんじゃん
+                            .button.button-play(data-voice="SO2nTjC91ns&t=2s-1h32m40s") ​約束
+                    .movie_wrapper
+                        h2.movie_title
+                            a(href="https://www.youtube.com/watch?v=Uz5_EAc5ftI&t=0s", target="_blank") 【NEEDY GIRL OVERDOSE】しあわせになりたい。【ぶいすぽっ！/橘ひなの】
+                        .button_wrapper
+                            .button.button-play.cat-c(data-voice="Uz5_EAc5ftI&t=3450s-9m27s") ちゅ♡
+                            .button.button-play(data-voice="Uz5_EAc5ftI&t=3450s-14m33s") よちよち
+                            .button.button-play(data-voice="Uz5_EAc5ftI&t=3450s-53m48s") SORENA⤴
+                            .button.button-play(data-voice="Uz5_EAc5ftI&t=3450s-1h29m40s") 英リサの悪口やめろよw
+                            .button.button-play(data-voice="Uz5_EAc5ftI&t=3450s-1h36m00s") ぽきた
+                            .button.button-play(data-voice="Uz5_EAc5ftI&t=3450s-1h46m32s") オタクの運命
+                            .button.button-play(data-voice="Uz5_EAc5ftI&t=3450s-1h49m20s") 待ってー!やっちゃったー!
+                            .button.button-play(data-voice="Uz5_EAc5ftI&t=3450s-1h56m41s") †昇天†
+                    ul.example3
+                        li
+                            a(href='index3.html') &#x524D;&#x3078;
+                        li
+                            a(href='index.html') 1
+                        li
+                            a(href='index2.html') 2
+                        li
+                            a(href='index3.html') 3
+                        li
+                            a(href='index4.html') 4
+                        li.this 5
+                        li.pre &#x524D;&#x3078;
+                .infoWrapper#infoWrapper
+                    p
+                        a(href='#', target='_blank')#fixedLink このボタンへのリンク
+
+                .ad_wrapper
+                    h2 advertisement
+                    .ad-item
+                        a(href="https://vggc.info/", target="_blank")
+                            img(src="https://vggc.info/img/banner.png")
+                            span ぶいすぽっ！ オンリー同人誌即売会 VGGC
+                    .ad-item
+                        a(href="https://holokle.info/", target="_blank")
+                            img(src="https://holokle.info/img/banner.png")
+                            span ホロライブオンリー同人誌即売会 ホロクル
+            .mainFooter
+                .credit
+                    p 音声等の権利は、全て元権利者に帰属します。
+                    p 音声以外の部分については、<a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">CC-BY-NC-SA-4.0</a>に基づき提供されています。<br>
+                        |ソースコードは<a href="https://github.com/p-knot/hinano-button/tree/master" target="_blank">こちら</a>。<br>お問い合わせ・追加したら面白そうなボイスがあれば
+                        a(href="https://twitter.com/p_knot_vb", target="_blank") @p_knot_vb
+                        |まで。
+    script(src='./js/app.js')
+
+    script(async, src="https://platform.twitter.com/widgets.js", charset="utf-8")
