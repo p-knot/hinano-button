@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>レコーダー - こんひな〜</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHSZQLYJX8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PHSZQLYJX8');
+  </script>
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .rec-layout{max-width:900px;margin:0 auto;padding:1.2rem 1rem 3rem;position:relative;z-index:1;display:flex;flex-direction:column;gap:1.2rem}
+    .rec-card{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid rgba(212,168,124,.12);padding:1.2rem;display:flex;flex-direction:column;gap:.7rem}
+    .rec-card-title{font-size:.9rem;font-weight:900}
+    .rec-settings{display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+    .rec-setting-group{display:flex;align-items:center;gap:.3rem}
+    .rec-setting-label{font-size:.72rem;font-weight:700;color:var(--text-sub)}
+    .rec-input{width:50px;padding:.3rem .3rem;border:2px solid var(--choco-milk);border-radius:8px;font-family:inherit;font-size:.8rem;text-align:center;background:var(--bg);color:var(--text);outline:none}
+    .rec-input:focus{border-color:var(--pink-400)}
+    .rec-unit{font-size:.6rem;color:var(--text-light)}
+    .loop-dur{font-size:.72rem;font-weight:700;color:var(--pink-600)}
+    .toggle-small{width:32px;height:18px;border:none;border-radius:9px;background:var(--choco-milk);cursor:pointer;position:relative;transition:background .2s;flex-shrink:0}
+    .toggle-small::after{content:'';position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;box-shadow:0 1px 2px rgba(0,0,0,.15);transition:transform .2s}
+    .toggle-small.is-on{background:var(--pink-500)}
+    .toggle-small.is-on::after{transform:translateX(14px)}
+
+    .timeline-wrap{background:var(--bg);border-radius:var(--radius);border:1px solid rgba(212,168,124,.15);overflow:hidden}
+    #recTimeline{width:100%;height:70px;display:block}
+
+    .rec-btn-row{display:flex;gap:.5rem;align-items:center;flex-wrap:wrap}
+    .rec-btn{padding:.5rem 1.1rem;border:none;border-radius:50px;font-family:inherit;font-size:.8rem;font-weight:700;cursor:pointer;transition:all .15s}
+    .rec-start{background:linear-gradient(135deg,#e53e3e,#dc2626);color:#fff;box-shadow:var(--shadow-sm)}
+    .rec-start:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+    .rec-start:disabled{opacity:.5;transform:none}
+    .rec-start.recording{animation:rec-pulse 1s ease-in-out infinite}
+    @keyframes rec-pulse{0%,100%{box-shadow:0 0 0 0 rgba(229,62,62,.4)}50%{box-shadow:0 0 0 10px rgba(229,62,62,0)}}
+    .rec-stop{background:var(--bg);color:var(--text-sub);border:2px solid var(--choco-milk)}
+    .rec-stop:disabled{opacity:.3}
+    .rec-time-display{font-size:.72rem;font-weight:700;color:var(--pink-600);margin-left:auto}
+    .rec-status{font-size:.72rem;color:var(--text-sub);min-height:1em}
+
+    .rec-pad-section{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid rgba(212,168,124,.12);padding:1rem}
+    .rec-pad-title{font-size:.85rem;font-weight:900;text-align:center;margin-bottom:.3rem}
+    .rec-pad-hint{font-size:.6rem;color:var(--text-light);text-align:center;margin-bottom:.5rem}
+    .rec-pad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;max-width:400px;margin:0 auto}
+    .rec-pad{aspect-ratio:1;border:2px solid var(--choco-milk);border-radius:var(--radius);background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;cursor:default;transition:all .12s;user-select:none}
+    .rec-pad-assigned{border-color:var(--pink-300);background:linear-gradient(145deg,var(--pink-100),var(--pink-200));cursor:pointer}
+    .rec-pad-assigned:hover{background:linear-gradient(145deg,var(--pink-200),var(--pink-300));transform:scale(1.03)}
+    .rec-pad-assigned:active{transform:scale(.95)}
+    .rec-pad-active{background:linear-gradient(145deg,var(--pink-400),var(--pink-600))!important;border-color:var(--pink-500)!important;transform:scale(.93)!important}
+    .rec-pad-active .rec-pad-key,.rec-pad-active .rec-pad-label{color:#fff!important}
+    .rec-pad-key{font-family:'M PLUS Rounded 1c',sans-serif;font-size:.9rem;font-weight:900;color:var(--choco-milk)}
+    .rec-pad-assigned .rec-pad-key{color:var(--pink-500);font-size:.75rem}
+    .rec-pad-label{font-size:.5rem;font-weight:700;color:var(--text-light);text-align:center;line-height:1.2;max-height:2em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    .rec-pad-assigned .rec-pad-label{color:var(--text)}
+
+    .track-section{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid rgba(212,168,124,.12);padding:1rem}
+    .track-section-header{display:flex;align-items:center;gap:.6rem;margin-bottom:.5rem;flex-wrap:wrap}
+    .track-section-title{font-size:.9rem;font-weight:900}
+    .all-play-wrap{margin-left:auto;display:flex;align-items:center;gap:.4rem}
+    .all-play-btn{padding:.4rem .9rem;border:none;border-radius:50px;background:linear-gradient(135deg,var(--choco),var(--choco-light));color:#fff;font-family:inherit;font-size:.75rem;font-weight:700;cursor:pointer;transition:all .15s}
+    .all-play-btn:hover{transform:translateY(-1px);box-shadow:var(--shadow-md)}
+    .all-play-btn.playing{background:linear-gradient(135deg,#e53e3e,#dc2626)}
+    .all-play-time{font-size:.65rem;color:var(--text-light)}
+
+    .track-item{padding:.6rem .8rem;border-radius:var(--radius);background:var(--bg);margin-bottom:.5rem;transition:opacity .2s}
+    .track-muted{opacity:.35}
+    .track-header{display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;flex-wrap:wrap}
+    .track-num{font-size:.8rem;font-weight:900;color:var(--pink-600)}
+    .track-info{font-size:.6rem;color:var(--text-sub);background:var(--pink-100);padding:.1rem .4rem;border-radius:4px}
+    .track-dur{font-size:.6rem;color:var(--text-light)}
+    .track-date{font-size:.6rem;color:var(--text-light);margin-left:auto}
+    .track-timeline-canvas{width:100%;height:36px;display:block;border-radius:4px;border:1px solid rgba(212,168,124,.1)}
+    .track-controls{display:flex;align-items:center;gap:.3rem;margin-top:.3rem}
+    .track-btn{width:28px;height:28px;border:none;border-radius:50%;background:rgba(92,58,46,.08);color:var(--text-sub);font-size:.65rem;font-weight:900;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s}
+    .track-btn:hover{background:var(--pink-200);color:var(--pink-600)}
+    .btn-active{background:var(--pink-500)!important;color:#fff!important}
+    .track-vol{-webkit-appearance:none;appearance:none;width:80px;height:3px;border-radius:2px;background:var(--pink-200);outline:none;margin:0 .3rem}
+    .track-vol::-webkit-slider-thumb{-webkit-appearance:none;width:12px;height:12px;border-radius:50%;background:var(--pink-500);cursor:pointer}
+    .track-vol::-moz-range-thumb{width:12px;height:12px;border-radius:50%;background:var(--pink-500);cursor:pointer;border:none}
+    .track-delete-btn:hover{background:rgba(220,38,38,.2)!important;color:#dc2626!important}
+    .track-empty{text-align:center;padding:2rem;color:var(--text-light);font-size:.8rem}
+
+    @media(max-width:600px){
+      .rec-pad-grid{max-width:100%}.rec-pad-key{font-size:.75rem}.rec-pad-label{font-size:.45rem}
+      .nav-brand{font-size:1.8rem}.nav-link span{display:none}.nav-link{padding:.5rem}.nav-link svg{width:20px;height:20px}.volume-slider{width:50px}
+      .rec-settings{gap:.3rem}#recTimeline{height:55px}
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-deco bg-deco-1"></div>
+  <div class="bg-deco bg-deco-2"></div>
+
+  <nav class="top-nav">
+    <a href="index.html" class="nav-brand">こんひな〜</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>ボイス</span></a>
+      <a href="soundboard.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8.01"/><line x1="10" y1="8" x2="10" y2="8.01"/><line x1="14" y1="8" x2="14" y2="8.01"/><line x1="18" y1="8" x2="18" y2="8.01"/><line x1="4" y1="16" x2="20" y2="16"/></svg><span>サウンドボード</span></a>
+      <a href="editor.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg><span>エディター</span></a>
+      <a href="recorder.html" class="nav-link is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg><span>レコーダー</span></a>
+    </div>
+    <div class="volume-control">
+      <svg class="volume-icon" id="volumeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="80">
+    </div>
+  </nav>
+
+  <div class="rec-layout">
+    <div class="rec-card">
+      <div class="rec-card-title">レコーダー</div>
+      <div class="rec-settings">
+        <div class="rec-setting-group"><span class="rec-setting-label">BPM</span><input type="number" class="rec-input" id="bpmInput" value="120" min="40" max="300"></div>
+        <div class="rec-setting-group"><span class="rec-setting-label">小節</span><input type="number" class="rec-input" id="barsInput" value="4" min="1" max="32"></div>
+        <div class="rec-setting-group"><span class="rec-setting-label">拍子</span><input type="number" class="rec-input" id="beatsInput" value="4" min="2" max="8"><span class="rec-unit">/ 小節</span></div>
+        <span class="loop-dur" id="loopDurDisplay"></span>
+        <div class="rec-setting-group"><span class="rec-setting-label">メトロノーム</span><button class="toggle-small is-on" id="metronomeToggle"></button></div>
+        <div class="rec-setting-group"><span class="rec-setting-label">カウントイン</span><button class="toggle-small is-on" id="countInToggle"></button></div>
+      </div>
+
+      <div class="timeline-wrap"><canvas id="recTimeline"></canvas></div>
+
+      <div class="rec-btn-row">
+        <button class="rec-btn rec-start" id="recStartBtn">⏺ 録音開始</button>
+        <button class="rec-btn rec-stop" id="recStopBtn" disabled>⏹ 停止</button>
+        <span class="rec-time-display" id="recTimeDisplay"></span>
+      </div>
+      <div class="rec-status" id="recStatus"></div>
+    </div>
+
+    <div class="rec-pad-section">
+      <div class="rec-pad-title">サウンドパッド</div>
+      <div class="rec-pad-hint">スペースキーで録音開始/停止 ｜ パッドを叩くとタイムラインに記録</div>
+      <div class="rec-pad-grid" id="recPadGrid"></div>
+    </div>
+
+    <div class="track-section">
+      <div class="track-section-header">
+        <span class="track-section-title">トラック</span>
+        <div class="all-play-wrap" id="allPlayWrap">
+          <button class="all-play-btn" id="allPlayBtn">▶ 全トラック再生</button>
+          <span class="all-play-time" id="allPlayTime"></span>
+        </div>
+      </div>
+      <div id="trackList"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>音声等の権利は、全て元権利者に帰属します。</p>
+    <p>音声以外の部分は <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">CC-BY-NC-SA-4.0</a> で提供。ソースコードは<a href="https://github.com/p-knot/hinano-button" target="_blank">こちら</a>。<br>お問い合わせ → <a href="https://twitter.com/p_knot_vb" target="_blank">@p_knot_vb</a></p>
+  </footer>
+
+  <script src="./js/voices.js"></script>
+  <script src="./js/recorder.js"></script>
+</body>
+</html>

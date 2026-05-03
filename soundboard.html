@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>サウンドボード - こんひな〜</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHSZQLYJX8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PHSZQLYJX8');
+  </script>
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .sb-layout{max-width:1000px;margin:0 auto;padding:1.2rem 1rem 3rem;display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;position:relative;z-index:1}
+    .fav-panel{background:var(--bg-card);border-radius:var(--radius-lg);box-shadow:var(--shadow-sm);border:1px solid rgba(212,168,124,.12);display:flex;flex-direction:column;max-height:calc(100vh - var(--header-height) - 3rem);overflow:hidden}
+    .fav-panel-header{padding:.9rem 1rem;border-bottom:1px solid rgba(212,168,124,.15);flex-shrink:0}
+    .fav-panel-title{font-size:.9rem;font-weight:900;margin-bottom:.5rem}
+    .fav-section-title{font-size:.75rem;font-weight:900;color:var(--text-sub);padding:.6rem .5rem .3rem;border-top:1px solid rgba(212,168,124,.1)}
+    .fav-panel-search input{width:100%;padding:.5rem .8rem;border:2px solid var(--choco-milk);border-radius:50px;font-size:.8rem;font-family:inherit;background:var(--bg);color:var(--text);outline:none;transition:border-color .2s}
+    .fav-panel-search input:focus{border-color:var(--pink-400)}
+    .fav-panel-search input::placeholder{color:var(--text-light)}
+    .fav-list-wrap{flex:1;overflow-y:auto;padding:.3rem .5rem}
+    .fav-list-wrap::-webkit-scrollbar{width:4px}
+    .fav-list-wrap::-webkit-scrollbar-thumb{background:var(--choco-milk);border-radius:2px}
+    .fav-empty{text-align:center;padding:1.5rem .5rem;color:var(--text-light);font-size:.8rem;line-height:1.6}
+    .fav-item{padding:.5rem .7rem;border-radius:var(--radius);background:linear-gradient(145deg,var(--pink-100),var(--pink-200));margin-bottom:.4rem;cursor:grab;transition:all .15s;user-select:none;-webkit-user-select:none;display:flex;align-items:center;gap:.4rem}
+    .fav-item:hover{background:linear-gradient(145deg,var(--pink-200),var(--pink-300));transform:translateX(2px);box-shadow:var(--shadow-sm)}
+    .fav-item:active{cursor:grabbing}
+    .fav-item.is-dragging{opacity:.4;transform:scale(.95)}
+    .fav-item-content{flex:1;min-width:0}
+    .fav-item-label{display:block;font-size:.8rem;font-weight:700;color:var(--text);line-height:1.3}
+    .fav-item-movie{display:block;font-size:.6rem;color:var(--text-sub);margin-top:1px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .fav-heart{width:26px;height:26px;border:none;background:none;cursor:pointer;color:#e53e3e;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .2s}
+    .fav-heart:hover{transform:scale(1.3)}
+    .edited-item{background:linear-gradient(145deg,var(--choco-milk),#f0dcc8)}
+    .edited-item:hover{background:linear-gradient(145deg,#e8d0b8,var(--choco-cream))}
+    .drag-ghost{position:fixed;padding:.5rem 1rem;background:var(--pink-500);color:#fff;border-radius:50px;font-family:'Zen Maru Gothic',sans-serif;font-size:.8rem;font-weight:700;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);box-shadow:var(--shadow-lg);white-space:nowrap}
+    .pad-panel{display:flex;flex-direction:column;gap:.8rem}
+    .pad-panel-title{font-size:.9rem;font-weight:900;text-align:center}
+    .pad-hint{text-align:center;font-size:.7rem;color:var(--text-light)}
+    .pad-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem}
+    .pad{position:relative;aspect-ratio:1;border:2px dashed var(--choco-milk);border-radius:var(--radius-lg);background:var(--bg-card);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.2rem;cursor:default;transition:all .15s ease;user-select:none;-webkit-user-select:none;box-shadow:var(--shadow-sm)}
+    .pad-assigned{border-style:solid;border-color:var(--pink-300);background:linear-gradient(145deg,var(--pink-100),var(--pink-200));cursor:pointer}
+    .pad-assigned:hover{background:linear-gradient(145deg,var(--pink-200),var(--pink-300));transform:translateY(-2px);box-shadow:var(--shadow-md)}
+    .pad-assigned:active{transform:scale(.95)}
+    .pad-drop-target{border-color:var(--pink-500)!important;border-style:solid!important;background:rgba(236,72,153,.1)!important;box-shadow:0 0 16px rgba(236,72,153,.2)!important;transform:scale(1.03)}
+    .pad-active{background:linear-gradient(145deg,var(--pink-400),var(--pink-600))!important;border-color:var(--pink-500)!important;transform:scale(.93)!important;box-shadow:0 0 20px rgba(236,72,153,.3)!important}
+    .pad-active .pad-key,.pad-active .pad-label{color:#fff!important}
+    .pad-key{font-family:'M PLUS Rounded 1c',sans-serif;font-size:1.2rem;font-weight:900;color:var(--choco-milk);line-height:1}
+    .pad-assigned .pad-key{color:var(--pink-500);font-size:.9rem}
+    .pad-label{font-size:.6rem;font-weight:700;color:var(--text-light);text-align:center;line-height:1.2;padding:0 .2rem;max-height:2.4em;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    .pad-assigned .pad-label{color:var(--text)}
+    .pad-remove{position:absolute;top:3px;right:3px;width:18px;height:18px;border:none;border-radius:50%;background:rgba(92,58,46,.15);color:var(--text-sub);font-size:.55rem;cursor:pointer;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .2s,background .2s}
+    .pad:hover .pad-remove{opacity:1}
+    .pad-remove:hover{background:rgba(220,38,38,.2);color:#dc2626}
+    @media(max-width:700px){.sb-layout{grid-template-columns:1fr;gap:1rem}.fav-panel{max-height:35vh}.pad-grid{gap:.4rem}.pad-key{font-size:1rem}.pad-assigned .pad-key{font-size:.8rem}.pad-label{font-size:.55rem}.nav-brand{font-size:1.8rem}.nav-link span{display:none}.nav-link{padding:.5rem}.nav-link svg{width:20px;height:20px}.volume-slider{width:50px}}
+  </style>
+</head>
+<body>
+  <div class="bg-deco bg-deco-1"></div>
+  <div class="bg-deco bg-deco-2"></div>
+  <div class="bg-deco bg-deco-3"></div>
+  <div class="bg-deco bg-deco-4"></div>
+
+  <nav class="top-nav">
+    <a href="index.html" class="nav-brand">こんひな〜</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg><span>ボイス</span></a>
+      <a href="soundboard.html" class="nav-link is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8.01"/><line x1="10" y1="8" x2="10" y2="8.01"/><line x1="14" y1="8" x2="14" y2="8.01"/><line x1="18" y1="8" x2="18" y2="8.01"/><line x1="4" y1="16" x2="20" y2="16"/></svg><span>サウンドボード</span></a>
+      <a href="editor.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg><span>エディター</span></a>
+      <a href="recorder.html" class="nav-link"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg><span>レコーダー</span></a>
+    </div>
+    <div class="volume-control">
+      <svg class="volume-icon" id="volumeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+      <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="80">
+    </div>
+  </nav>
+
+  <div class="sb-layout">
+    <div class="fav-panel">
+      <div class="fav-panel-header">
+        <div class="fav-panel-title">ボイス</div>
+        <div class="fav-panel-search"><input type="text" id="favSearch" placeholder="検索..."></div>
+      </div>
+      <div class="fav-list-wrap">
+        <div class="fav-section-title">♥ お気に入り</div>
+        <div id="favList"></div>
+        <div class="fav-empty" id="favEmpty">お気に入りがまだないよ！<br><a href="index.html" style="color:var(--pink-500)">ボイス一覧</a>でハートを押して追加してね</div>
+        <div class="fav-section-title">🎛 編集済みボイス</div>
+        <div id="editedList"></div>
+        <div class="fav-empty" id="editedEmpty">編集済みボイスはまだないよ<br><a href="editor.html" style="color:var(--pink-500)">エディター</a>で作ってね</div>
+      </div>
+    </div>
+
+    <div class="pad-panel">
+      <div class="pad-panel-title">サウンドボード</div>
+      <div class="pad-hint">ボイスをドラッグしてパッドに配置 ｜ キーボードでも再生OK</div>
+      <div class="pad-grid" id="padGrid"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <p>音声等の権利は、全て元権利者に帰属します。</p>
+    <p>音声以外の部分は <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">CC-BY-NC-SA-4.0</a> で提供。ソースコードは<a href="https://github.com/p-knot/hinano-button" target="_blank">こちら</a>。<br>お問い合わせ → <a href="https://twitter.com/p_knot_vb" target="_blank">@p_knot_vb</a></p>
+  </footer>
+
+  <script src="./js/voices.js"></script>
+  <script src="./js/soundboard.js"></script>
+</body>
+</html>

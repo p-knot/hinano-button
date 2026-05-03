@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>こんひな〜</title>
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHSZQLYJX8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-PHSZQLYJX8');
+  </script>
+
+  <meta name="format-detection" content="telephone=no">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;700;900&family=M+PLUS+Rounded+1c:wght@700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+  <!-- 背景デコ -->
+  <div class="bg-deco bg-deco-1"></div>
+  <div class="bg-deco bg-deco-2"></div>
+  <div class="bg-deco bg-deco-3"></div>
+  <div class="bg-deco bg-deco-4"></div>
+
+  <!-- ナビ -->
+  <nav class="top-nav">
+    <a href="index.html" class="nav-brand">こんひな〜</a>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link is-active">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        <span>ボイス</span>
+      </a>
+      <a href="soundboard.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><line x1="6" y1="8" x2="6" y2="8.01"/><line x1="10" y1="8" x2="10" y2="8.01"/><line x1="14" y1="8" x2="14" y2="8.01"/><line x1="18" y1="8" x2="18" y2="8.01"/><line x1="4" y1="16" x2="20" y2="16"/></svg>
+        <span>サウンドボード</span>
+      </a>
+      <a href="editor.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+        <span>エディター</span>
+      </a>
+      <a href="recorder.html" class="nav-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>
+        <span>レコーダー</span>
+      </a>
+    </div>
+    <div class="volume-control">
+      <svg class="volume-icon" id="volumeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+        <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
+        <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>
+      </svg>
+      <input type="range" class="volume-slider" id="volumeSlider" min="0" max="100" value="80">
+    </div>
+  </nav>
+
+  <!-- ツールバー -->
+  <div class="toolbar">
+    <div class="search-row">
+      <div class="search-bar">
+        <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="searchInput" placeholder="ボイスを検索...">
+      </div>
+      <button class="sort-btn" id="sortBtn" title="並び替え">
+        <svg class="sort-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7-7 7 7"/></svg>
+      </button>
+    </div>
+    <div class="filter-row" id="filterRow">
+      <button class="filter-chip chip-all is-active" data-tag="all">すべて</button>
+      <button class="filter-chip chip-fav" data-tag="fav">♥ お気に入り</button>
+      <button class="filter-chip chip-sakebi" data-tag="叫び">叫び</button>
+      <button class="filter-chip chip-kawaii" data-tag="かわいい">かわいい</button>
+      <button class="filter-chip chip-neta" data-tag="ネタ">ネタ</button>
+      <button class="filter-chip chip-daipan" data-tag="台パン">台パン</button>
+      <button class="filter-chip chip-aisatsu" data-tag="挨拶">挨拶</button>
+    </div>
+  </div>
+
+  <!-- メイン -->
+  <main class="main-content" id="voiceContainer"></main>
+
+  <!-- リンクポップアップ -->
+  <div class="link-popup" id="linkPopup">
+    <span>🔗</span>
+    <a id="linkPopupUrl">リンクをコピー</a>
+    <button class="link-popup-close" id="linkPopupClose">✕</button>
+  </div>
+
+  <!-- フッター -->
+  <footer class="site-footer">
+    <p>音声等の権利は、全て元権利者に帰属します。</p>
+    <p>
+      音声以外の部分は <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja" target="_blank">CC-BY-NC-SA-4.0</a> で提供。
+      ソースコードは<a href="https://github.com/p-knot/hinano-button" target="_blank">こちら</a>。<br>
+      お問い合わせ → <a href="https://twitter.com/p_knot_vb" target="_blank">@p_knot_vb</a>
+    </p>
+  </footer>
+
+  <!-- JS読み込み（順番重要: voices → favorite → app） -->
+  <script src="./js/voices.js"></script>
+  <script src="./js/favorite.js"></script>
+  <script src="./js/app.js"></script>
+</body>
+</html>
